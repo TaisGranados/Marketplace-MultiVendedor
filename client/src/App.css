@@ -1,48 +1,20 @@
-/* ═══════════════════════════════════════════════════
-   DESIGN SYSTEM — Warm Minimalist / Neutral Elegant
-   Fonts: Playfair Display (headings) + DM Sans (body)
-   ═══════════════════════════════════════════════════ */
-
+/* Variables CSS para colores y estilos globales */
 :root {
-  /* Paleta cálida */
-  --color-cream: #faf7f2;
-  --color-beige: #f0ebe3;
-  --color-sand: #e0d5c5;
-  --color-warm-gray: #b8a99a;
-  --color-taupe: #8c7b6b;
-  --color-coffee: #5c4a3a;
-  --color-espresso: #3a2e25;
-  --color-charcoal: #2c2420;
-  --color-accent: #c8956c;
-  --color-accent-hover: #b07d56;
-
-  /* Semánticos */
-  --primary-color: var(--color-espresso);
-  --primary-hover: var(--color-charcoal);
-  --secondary-color: var(--color-taupe);
-  --success-color: #7a8c6e;
-  --danger-color: #c47a6a;
-  --warning-color: #d4a96a;
-  --bg-color: var(--color-cream);
-  --text-color: var(--color-espresso);
-  --text-light: var(--color-taupe);
-  --border-color: var(--color-sand);
-
-  /* Tipografía */
-  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-
-  /* Sombras suaves y cálidas */
-  --shadow: 0 1px 3px rgba(60, 46, 37, 0.06);
-  --shadow-md: 0 4px 12px rgba(60, 46, 37, 0.08);
-  --shadow-lg: 0 12px 32px rgba(60, 46, 37, 0.1);
-
-  /* Bordes */
-  --radius: 6px;
-  --radius-lg: 12px;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #64748b;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --border-color: #e2e8f0;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Reset */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -50,20 +22,13 @@
 }
 
 body {
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-color);
   color: var(--text-color);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.25;
-  color: var(--color-espresso);
 }
 
 .App {
@@ -72,23 +37,20 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
 }
 
-/* Container */
+/* Utilidades comunes */
 .container {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
-/* Botones globales (usados en Navbar links) */
 .btn {
-  padding: 10px 24px;
+  padding: 10px 20px;
   border: none;
-  border-radius: var(--radius);
+  border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
-  font-weight: 600;
-  font-family: var(--font-body);
-  letter-spacing: 0.3px;
+  font-weight: 500;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
@@ -96,23 +58,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background-color: var(--color-espresso);
-  color: var(--color-cream);
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-charcoal);
+  background-color: var(--primary-hover);
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: var(--color-espresso);
-  border: 1.5px solid var(--color-espresso);
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-espresso);
-  color: var(--color-cream);
+  background-color: var(--secondary-color);
+  color: white;
 }
 
 .btn-danger {
@@ -120,13 +76,30 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--shadow);
 }
 
-/* Selection color */
-::selection {
-  background-color: var(--color-sand);
-  color: var(--color-espresso);
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.spinner {
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

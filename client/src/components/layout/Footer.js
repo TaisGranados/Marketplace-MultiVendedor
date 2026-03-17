@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom';
 import { FiFacebook, FiTwitter, FiInstagram, FiMail } from 'react-icons/fi';
 import './Footer.css';
 
+/**
+ * Footer de la aplicación
+ * Muestra información, enlaces y redes sociales
+ */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="footer">
       <div className="footer-container">
+        {/* Columna 1: Sobre nosotros */}
         <div className="footer-column">
           <h3>Marketplace</h3>
           <p>
@@ -31,6 +36,7 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Columna 2: Enlaces rápidos */}
         <div className="footer-column">
           <h4>Enlaces Rápidos</h4>
           <ul>
@@ -41,6 +47,7 @@ const Footer = () => {
           </ul>
         </div>
 
+        {/* Columna 3: Para vendedores */}
         <div className="footer-column">
           <h4>Vendedores</h4>
           <ul>
@@ -50,6 +57,7 @@ const Footer = () => {
           </ul>
         </div>
 
+        {/* Columna 4: Legal */}
         <div className="footer-column">
           <h4>Legal</h4>
           <ul>
@@ -61,6 +69,7 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Copyright */}
       <div className="footer-bottom">
         <p>&copy; {currentYear} Marketplace. Todos los derechos reservados.</p>
       </div>

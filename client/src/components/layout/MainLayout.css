@@ -6,11 +6,11 @@
 
 .main-content {
   flex: 1;
-  padding-top: 68px;
+  padding-top: 70px; /* Espacio para navbar fijo */
 }
 
 @media (max-width: 768px) {
   .main-content {
-    padding-top: 58px;
+    padding-top: 60px;
   }
 }
