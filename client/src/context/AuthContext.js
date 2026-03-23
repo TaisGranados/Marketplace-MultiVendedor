@@ -98,7 +98,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       return { 
         success: false, 
-        error: error.response?.data?.message || 'Error al registrarse' 
+       error: error.response?.data?.message || 'Error al registrarse'
       };
     }
   };
