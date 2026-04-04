@@ -6,22 +6,14 @@ import dns from "node:dns/promises";
 import conectarDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import productRoutes from "./routes/productRoutes.js"; 
-import cartRoutes from "./routes/cartRoutes.js";       
+import cartRoutes from "./routes/cartRoutes.js";   
+import orderRoutes from "./routes/orderRoutes.js";    
 
 dotenv.config();
 
-
 await dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
-async function conectarDB() {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("Conectado a MongoDB");
-  } catch (error) {
-    console.log("Error de conexión", error);
-  }
-}
-
+// ✅ conectar a la DB (usa el archivo externo)
 await conectarDB();
 
 const app = express();
@@ -29,12 +21,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
+// ✅ rutas (después de crear app)
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes); 
 app.use("/api/cart", cartRoutes);        
-
-
+app.use("/api/orders", orderRoutes);
 
 app.get("/", (req, res) => {
   res.send("Servidor funcionando 🚀");
