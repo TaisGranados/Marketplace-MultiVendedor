@@ -10,5 +10,3 @@ Archivo modificado
 
 src/App.js — Se agregó la ruta /login
 
-Autor
-Jesus Gamboa
